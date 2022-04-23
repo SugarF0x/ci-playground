@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - run: echo "${{ $GITHUB_WORKSPACE }}"
+      - run: echo "${{ env.GITHUB_WORKSPACE }}"
 
 #jobs:
 #  setup:
