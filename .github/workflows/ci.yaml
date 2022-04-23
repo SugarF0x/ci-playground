@@ -8,10 +8,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - run: |
-          echo "$GITHUB_WORKSPACE"
-          echo "$GITHUB_ACTION"
-          echo "$GITHUB_ACTOR"
+      - run: echo "Workspace $GITHUB_WORKSPACE"
+      - run: echo "Action $GITHUB_ACTION"
+      - run: echo "Actor $GITHUB_ACTOR"
+      - run: echo "Ci $CI"
 
 #jobs:
 #  setup:
