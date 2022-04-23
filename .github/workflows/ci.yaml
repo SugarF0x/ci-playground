@@ -1,0 +1,85 @@
+name: ci
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    name: "Checkout & setup node"
+    runs-on: self-hosted
+
+    steps:
+      - run: echo $GITHUB_WORKSPACE
+
+#jobs:
+#  setup:
+#    name: "Checkout & setup node"
+#    runs-on: self-hosted
+#
+#    strategy:
+#      matrix:
+#        node-version: [16.x]
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#          cache: 'npm'
+#
+#      - name: Install dependencies
+#        run: npm install
+#
+#  changelog:
+#    name: "Generate changelog"
+#    needs: [ setup ]
+#    runs-on: self-hosted
+#
+#    outputs:
+#      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+#      tag: ${{ steps.changelog.outputs.tag }}
+#      skipped: ${{ steps.changelog.outputs.skipped }}
+#
+#    steps:
+#      - name: Generate Changelog
+#        id: changelog
+#        uses: TriPSs/conventional-changelog-action@v3
+#        with:
+#          git-message: 'chore(release): {version}'
+#          release-count: 0
+#
+#  build:
+#    name: "Build & Generate output"
+#    needs: [ changelog ]
+#    runs-on: self-hosted
+#
+#    steps:
+#      - run: |
+#          npm run build
+#          npm run generate
+#
+#      - uses: montudor/action-zip@v1
+#        with:
+#          args: zip -qq -r dir.zip dir
+#
+#  release:
+#    name: "Create release"
+#    needs: [ build, changelog ]
+#    if: ${{ needs.changelog.outputs.skipped == 'false' }}
+#    runs-on: self-hosted
+#
+#    steps:
+#      - uses: softprops/action-gh-release@v1
+#        with:
+#          tag_name: ${{ needs.changelog.outputs.tag }}
+#          name: ${{ needs.changelog.outputs.tag }}
+#          body: ${{ needs.changelog.outputs.clean_changelog }}
+#          files: dist.zip
+#
+#  deploy:
+#    name: "Deploy to PM2"
+#    needs: [ build ]
+#    runs-on: self-hosted
+
+
