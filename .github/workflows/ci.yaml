@@ -6,8 +6,17 @@ jobs:
   env_echo:
     runs-on: ubuntu-latest
     steps:
-      - name: pm2 list via ssh
-        run: echo "Test of piss"
+      - name: Execute remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            whoami
+            pm2 list
+            pm2 stop dots
+            pm2 start dots
 
 
 #jobs:
