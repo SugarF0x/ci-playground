@@ -7,7 +7,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: 'test pm2 access'
-        run: C:\actions-runner\text.cmd
+        run: C:\actions-runner\test
 
 #jobs:
 #  setup:
