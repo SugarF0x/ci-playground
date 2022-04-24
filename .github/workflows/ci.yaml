@@ -6,17 +6,9 @@ jobs:
   env_echo:
     runs-on: self-hosted
     steps:
-      - name: Execute remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            whoami
-            pm2 list
-            pm2 stop dots
-            pm2 start dots
+      - name: 'Get test.txt'
+        run: |
+          more C:\test.txt
 
 #jobs:
 #  setup:
