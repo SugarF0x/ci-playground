@@ -14,9 +14,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             whoami
-            ls -al
-            dir
-            echo "Piss shit feed"
+            & ls -al
+            & dir
+            & echo "Piss shit feed"
 
 
 #jobs:
