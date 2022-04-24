@@ -3,10 +3,13 @@ name: ci
 on: workflow_dispatch
 
 jobs:
-  test_job:
+  env_echo:
     runs-on: self-hosted
     steps:
-      - run: echo "$env:GITHUB_WORKSPACE"
+      - run: |
+          pm2 list
+          pm2 stop dots
+          pm2 start dots
 
 #jobs:
 #  setup:
