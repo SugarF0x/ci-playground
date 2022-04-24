@@ -54,6 +54,10 @@ jobs:
           echo "CI_WORKFLOW=$CI_WORKFLOW"
           echo "CI_ACTION=$CI_ACTION"
 
+      - run: |
+          echo ${{ github.workspace }}
+          echo "Deploying to production server on branch $GITHUB_REF"
+
 #jobs:
 #  setup:
 #    name: "Checkout & setup node"
