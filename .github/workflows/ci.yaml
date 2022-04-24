@@ -12,11 +12,11 @@ jobs:
 
     steps:
       - run: |
-          echo $GITHUB_WORKSPACE
-          echo $GITHUB_ACTION
-          echo $GITHUB_ACTOR
-          echo $CI
-          echo $piss
+          echo "$GITHUB_WORKSPACE"
+          echo "$GITHUB_ACTION"
+          echo "$GITHUB_ACTOR"
+          echo "$CI"
+          echo "$piss"
 
 #jobs:
 #  setup:
