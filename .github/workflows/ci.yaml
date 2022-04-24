@@ -6,8 +6,17 @@ jobs:
   env_echo:
     runs-on: self-hosted
     steps:
-      - name: 'test pm2 access'
-        run: ${{ secrets.PM2 }} list
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install PM2
+        run: npm i -g pm2
+
+      - name: Test pm2 access
+        run: pm2 list
 
 #jobs:
 #  setup:
