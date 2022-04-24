@@ -13,10 +13,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            whoami
-            & ls -al
-            & dir
-            & echo "Piss shit feed"
+            whoami && ls -al && dir && echo "Piss shit feed"
 
 
 #jobs:
