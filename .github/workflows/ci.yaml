@@ -6,9 +6,8 @@ jobs:
   env_echo:
     runs-on: self-hosted
     steps:
-      - name: 'Get test.txt'
-        run: |
-          more C:\test.txt
+      - name: 'test pm2 access'
+        run: C:\actions-runner\text.cmd
 
 #jobs:
 #  setup:
