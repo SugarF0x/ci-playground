@@ -6,9 +6,13 @@ jobs:
   env_echo:
     runs-on: self-hosted
     steps:
-      - run: |
-          $env:PATH += ${{ secrets.NPM }}
-          pm2 list
+      - name: pm2 list via ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          command: pm2 list
 
 
 #jobs:
