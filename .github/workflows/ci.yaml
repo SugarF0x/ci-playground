@@ -14,9 +14,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             whoami
-            pm2 list
-            pm2 stop dots
-            pm2 start dots
+            && pm2 list
+            && pm2 stop dots
+            && pm2 start dots
 
 
 #jobs:
