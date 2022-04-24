@@ -7,9 +7,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: |
-          set PATH=%PATH%;${{ secrets.NPM }}
-          pm2 list
-        
+          $env:PATH
+#          $env:PATH += ${{ secrets.NPM }}
+#          pm2 list
+
 
 #jobs:
 #  setup:
