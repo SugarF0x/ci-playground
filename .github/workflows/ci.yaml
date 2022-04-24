@@ -21,6 +21,11 @@ jobs:
       - run: echo "$GITHUB.REPOSITORY_OWNER"
       - run: echo "$GITHUB.GITHUB_WORKSPACE"
 
+      - name: 'SHIT PISS'
+        run: |
+          echo "Github Actor: $GITHUB_ACTOR"
+          echo "Github Ref: $GITHUB_REF"
+
 #jobs:
 #  setup:
 #    name: "Checkout & setup node"
