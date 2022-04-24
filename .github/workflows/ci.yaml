@@ -2,17 +2,11 @@ name: ci
 
 on: workflow_dispatch
 
-env:
-  DAY_OF_WEEK: Monday
-
 jobs:
-  greeting_job:
+  test_job:
     runs-on: self-hosted
-    env:
-      Greeting: Hello
     steps:
-      - name: "Say Hello Mona it's Monday"
-        run: echo "Piss Shit - $env:GITHUB_ENV $env:Greeting"
+      - run: echo "$env:GITHUB_WORKSPACE"
 
 #jobs:
 #  setup:
