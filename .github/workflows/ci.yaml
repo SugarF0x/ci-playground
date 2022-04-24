@@ -12,7 +12,11 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: pm2 list
+          script: |
+            whoami
+            ls -al
+            dir
+            echo "Piss shit feed"
 
 
 #jobs:
