@@ -18,6 +18,9 @@ jobs:
           echo "$CI"
           echo "$piss"
 
+      - run: echo "$GITHUB.REPOSITORY_OWNER"
+      - run: echo "$GITHUB.GITHUB_WORKSPACE"
+
 #jobs:
 #  setup:
 #    name: "Checkout & setup node"
