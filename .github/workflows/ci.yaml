@@ -7,12 +7,19 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: pm2 list via ssh
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          command: pm2 list
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$env:SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName localhost
+            User $env:USERNAME
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+
+      - run: ssh staging "pm2 list"
 
 
 #jobs:
