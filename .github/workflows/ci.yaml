@@ -4,17 +4,13 @@ on: workflow_dispatch
 
 jobs:
   setup:
-    name: "Checkout, setup node & generate changelog"
+    name: "Checkout & generate changelog"
     runs-on: self-hosted
 
     outputs:
       clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
       tag: ${{ steps.changelog.outputs.tag }}
       skipped: ${{ steps.changelog.outputs.skipped }}
-
-    strategy:
-      matrix:
-        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +22,16 @@ jobs:
           git-message: 'chore(release): {version}'
           release-count: 0
 
+  build:
+    name: "Build & Generate output"
+    needs: [ setup ]
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -35,13 +41,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-  build:
-    name: "Build & Generate output"
-    needs: [ setup ]
-    runs-on: self-hosted
-
-    steps:
-      - run: |
+      - name: Build & generate
+        run: |
           npm run build
           npm run generate
 
