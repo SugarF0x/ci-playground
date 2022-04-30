@@ -32,11 +32,23 @@ jobs:
         node-version: [ 16.x ]
 
     steps:
-      - name: Setup node & yarn
-        uses: actions/setup-node@v3
+      - name: Setup Nodejs and npm
+        uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          cache: 'yarn'
+          node-version: "14"
+          cache: npm
+
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn
 
       - name: Install dependencies
         run: yarn install
@@ -50,6 +62,10 @@ jobs:
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r output.zip .output
+
+      - name: Uninstall Yarn
+        if: always()
+        run: npm uninstall -g yarn
 
   release:
     name: "Create release"
