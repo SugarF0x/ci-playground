@@ -1,3 +1,12 @@
+## [3.1.8](https://github.com/SugarF0x/ci-playground/compare/v3.1.7...v3.1.8) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** fix deploy ([319e7a0](https://github.com/SugarF0x/ci-playground/commit/319e7a0fd9714462727e3a0703a5d7c45e69d859))
+
+
+
 ## [3.1.7](https://github.com/SugarF0x/ci-playground/compare/v3.1.6...v3.1.7) (2022-04-30)
 
 
