@@ -28,20 +28,20 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Install dependencies
-        uses: borales/actions-yarn@v2.3.0
+      - name: Cache yarn
+        uses: actions/cache@v2
         with:
-          cmd: install
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Build
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+        run: yarn build
 
       - name: Generate
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: generate
+        run: yarn generate
 
       - uses: montudor/action-zip@v1
         with:
