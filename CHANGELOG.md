@@ -1,3 +1,12 @@
+## [3.1.9](https://github.com/SugarF0x/ci-playground/compare/v3.1.8...v3.1.9) (2022-04-30)
+
+
+### Bug Fixes
+
+* **shit:** i hate windows ([f1e581d](https://github.com/SugarF0x/ci-playground/commit/f1e581dd3346ac92f65d4387deb6a0e78f0979c5))
+
+
+
 ## [3.1.8](https://github.com/SugarF0x/ci-playground/compare/v3.1.7...v3.1.8) (2022-04-30)
 
 
