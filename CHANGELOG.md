@@ -1,3 +1,12 @@
+## [3.1.7](https://github.com/SugarF0x/ci-playground/compare/v3.1.6...v3.1.7) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** remove yarn uninstallation ([a3b44ae](https://github.com/SugarF0x/ci-playground/commit/a3b44ae9ef878011b64bd718c827f6d5e68627cc))
+
+
+
 ## [3.1.6](https://github.com/SugarF0x/ci-playground/compare/v3.1.5...v3.1.6) (2022-04-30)
 
 
