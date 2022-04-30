@@ -1,3 +1,12 @@
+## [3.1.3](https://github.com/SugarF0x/ci-playground/compare/v3.1.2...v3.1.3) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** fuck me x2 ([7fca59b](https://github.com/SugarF0x/ci-playground/commit/7fca59bfeabb006d3d067e1d59cb18ff2f946a95))
+
+
+
 ## [3.1.2](https://github.com/SugarF0x/ci-playground/compare/v3.1.1...v3.1.2) (2022-04-30)
 
 
