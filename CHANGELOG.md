@@ -1,3 +1,12 @@
+## [3.1.4](https://github.com/SugarF0x/ci-playground/compare/v3.1.3...v3.1.4) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** attempt to hackily install yarn ([4214698](https://github.com/SugarF0x/ci-playground/commit/4214698e631efa69faeccb00f5e02d34139c102c))
+
+
+
 ## [3.1.3](https://github.com/SugarF0x/ci-playground/compare/v3.1.2...v3.1.3) (2022-04-30)
 
 
