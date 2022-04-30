@@ -5,10 +5,12 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "zip": "node ./.github/zip"
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.1",
-    "sass": "^1.50.1"
+    "sass": "^1.50.1",
+    "zip-dir": "^2.0.0"
   }
 }

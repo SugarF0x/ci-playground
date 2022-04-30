@@ -52,24 +52,12 @@ jobs:
       - name: Generate
         run: yarn generate
 
-  zip:
-    name: Zip dist
-    needs: [ build ]
-    if: ${{ needs.setup.outputs.skipped == 'false' }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Stop pm2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: 7z a -tzip output.zip .output
+      - name: Zip output
+        run: yarn zip
 
   release:
     name: "Create release"
-    needs: [ zip, setup ]
+    needs: [ build, setup ]
     if: ${{ needs.setup.outputs.skipped == 'false' }}
     runs-on: ubuntu-latest
 
