@@ -27,10 +27,6 @@ jobs:
     needs: [ setup ]
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
-
     steps:
       - name: Setup Nodejs and npm
         uses: actions/setup-node@v2
@@ -62,7 +58,7 @@ jobs:
   release:
     name: "Create release"
     needs: [ build, setup ]
-    if: ${{ needs.changelog.outputs.skipped == 'false' }}
+    if: ${{ needs.setup.outputs.skipped == 'false' }}
     runs-on: self-hosted
 
     steps:
