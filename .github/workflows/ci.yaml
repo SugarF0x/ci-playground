@@ -59,10 +59,6 @@ jobs:
       - name: Generate
         run: yarn generate
 
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r output.zip .output
-
       - name: Uninstall Yarn
         if: always()
         run: npm uninstall -g yarn
@@ -74,12 +70,19 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          path: './.output'
+          type: 'zip'
+          filename: 'output.zip'
+
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.changelog.outputs.tag }}
           name: ${{ needs.changelog.outputs.tag }}
           body: ${{ needs.changelog.outputs.clean_changelog }}
-          files: dist.zip
+          files: output.zip
 #
 #  deploy:
 #    name: "Deploy"
