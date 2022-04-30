@@ -3,58 +3,45 @@ name: ci
 on: workflow_dispatch
 
 jobs:
-  env_echo:
-    runs-on: ubuntu-latest
+  setup:
+    name: "Checkout & setup node"
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
-      - name: Execute remote ssh commands using password
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            whoami && ls -al && dir && echo "Piss shit feed"
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
+      - name: Install dependencies
+        run: npm install
 
-#jobs:
-#  setup:
-#    name: "Checkout & setup node"
-#    runs-on: self-hosted
-#
-#    strategy:
-#      matrix:
-#        node-version: [16.x]
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Use Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v2
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#          cache: 'npm'
-#
-#      - name: Install dependencies
-#        run: npm install
-#
-#  changelog:
-#    name: "Generate changelog"
-#    needs: [ setup ]
-#    runs-on: self-hosted
-#
-#    outputs:
-#      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
-#      tag: ${{ steps.changelog.outputs.tag }}
-#      skipped: ${{ steps.changelog.outputs.skipped }}
-#
-#    steps:
-#      - name: Generate Changelog
-#        id: changelog
-#        uses: TriPSs/conventional-changelog-action@v3
-#        with:
-#          git-message: 'chore(release): {version}'
-#          release-count: 0
-#
+  changelog:
+    name: "Generate changelog"
+    needs: [ setup ]
+    runs-on: self-hosted
+
+    outputs:
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      skipped: ${{ steps.changelog.outputs.skipped }}
+
+    steps:
+      - name: Generate Changelog
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          config-file-path: './.github/changelog-config.json'
+          git-message: 'chore(release): {version}'
+          release-count: 0
+
 #  build:
 #    name: "Build & Generate output"
 #    needs: [ changelog ]
@@ -84,8 +71,21 @@ jobs:
 #          files: dist.zip
 #
 #  deploy:
-#    name: "Deploy to PM2"
-#    needs: [ build ]
-#    runs-on: self-hosted
+#    name: "Deploy"
+#    needs: [ build, changelog ]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Stop pm2
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          # this script has to be joined with && before push
+#          # I hate windows
+#          script: |
+#            whoami
+#            dir
+#            echo "Piss shit feed"
 
 
