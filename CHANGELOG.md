@@ -1,3 +1,12 @@
+## [3.1.1](https://github.com/SugarF0x/ci-playground/compare/v3.1.0...v3.1.1) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** use alternative yarn caching method ([2ae8351](https://github.com/SugarF0x/ci-playground/commit/2ae8351ac4c8600466cf0b3d462ff88f04212d6e))
+
+
+
 # [3.1.0](https://github.com/SugarF0x/ci-playground/compare/v3.0.0...v3.1.0) (2022-04-30)
 
 
