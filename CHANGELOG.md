@@ -1,4 +1,18 @@
-# 3.0.0 (2022-04-30)
+# [3.1.0](https://github.com/SugarF0x/ci-playground/compare/v3.0.0...v3.1.0) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** use yarn instead of npm ([06f124c](https://github.com/SugarF0x/ci-playground/commit/06f124c9ac3df431be0482c8f1bd1a149cc8966e))
+
+
+### Features
+
+* **fix:** move node to second job ([09a13ff](https://github.com/SugarF0x/ci-playground/commit/09a13ff245d634a2df540d9bb0ae6d3ea66caa33))
+
+
+
+# [3.0.0](https://github.com/SugarF0x/ci-playground/compare/39b5f4c75553bc56957d63ed27a9c74376433d12...v3.0.0) (2022-04-30)
 
 
 ### Bug Fixes
