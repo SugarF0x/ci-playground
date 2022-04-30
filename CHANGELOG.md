@@ -1,3 +1,12 @@
+## [3.1.6](https://github.com/SugarF0x/ci-playground/compare/v3.1.5...v3.1.6) (2022-04-30)
+
+
+### Bug Fixes
+
+* **ci:** move zip to release ([eaa5288](https://github.com/SugarF0x/ci-playground/commit/eaa5288eb9f9c689c1557c9b86537de7b112a2c9))
+
+
+
 ## [3.1.5](https://github.com/SugarF0x/ci-playground/compare/v3.1.4...v3.1.5) (2022-04-30)
 
 
