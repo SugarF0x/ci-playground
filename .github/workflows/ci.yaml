@@ -52,30 +52,38 @@ jobs:
       - name: Generate
         run: yarn generate
 
-  release:
-    name: "Create release"
-    needs: [ build, setup ]
+  zip:
+    name: Zip dist
+    needs: [ build ]
     if: ${{ needs.setup.outputs.skipped == 'false' }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Archive Release
-        uses: thedoctor0/zip-release@master
+      - name: Stop pm2
+        uses: appleboy/ssh-action@master
         with:
-          path: './.output'
-          type: 'zip'
-          filename: 'output.zip'
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: 7z a -tzip output.zip .output
 
+  release:
+    name: "Create release"
+    needs: [ zip, setup ]
+    if: ${{ needs.setup.outputs.skipped == 'false' }}
+    runs-on: ubuntu-latest
+
+    steps:
       - uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ needs.changelog.outputs.tag }}
-          name: ${{ needs.changelog.outputs.tag }}
-          body: ${{ needs.changelog.outputs.clean_changelog }}
+          tag_name: ${{ needs.setup.outputs.tag }}
+          name: ${{ needs.setup.outputs.tag }}
+          body: ${{ needs.setup.outputs.clean_changelog }}
           files: output.zip
-#
+
 #  deploy:
 #    name: "Deploy"
-#    needs: [ build, setup ]
+#    needs: [ zip ]
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Stop pm2
