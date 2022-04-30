@@ -4,8 +4,13 @@ on: workflow_dispatch
 
 jobs:
   setup:
-    name: "Checkout & setup node"
+    name: "Checkout, setup node & generate changelog"
     runs-on: self-hosted
+
+    outputs:
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      skipped: ${{ steps.changelog.outputs.skipped }}
 
     strategy:
       matrix:
@@ -13,6 +18,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Generate Changelog
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          git-message: 'chore(release): {version}'
+          release-count: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -23,27 +35,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-  changelog:
-    name: "Generate changelog"
-    needs: [ setup ]
-    runs-on: self-hosted
-
-    outputs:
-      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
-      tag: ${{ steps.changelog.outputs.tag }}
-      skipped: ${{ steps.changelog.outputs.skipped }}
-
-    steps:
-      - name: Generate Changelog
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          git-message: 'chore(release): {version}'
-          release-count: 0
-
   build:
     name: "Build & Generate output"
-    needs: [ changelog ]
+    needs: [ setup ]
     runs-on: self-hosted
 
     steps:
@@ -57,7 +51,7 @@ jobs:
 
   release:
     name: "Create release"
-    needs: [ build, changelog ]
+    needs: [ build, setup ]
     if: ${{ needs.changelog.outputs.skipped == 'false' }}
     runs-on: self-hosted
 
@@ -71,7 +65,7 @@ jobs:
 #
 #  deploy:
 #    name: "Deploy"
-#    needs: [ build, changelog ]
+#    needs: [ build, setup ]
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Stop pm2
