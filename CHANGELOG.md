@@ -1,3 +1,12 @@
+## [3.1.5](https://github.com/SugarF0x/ci-playground/compare/v3.1.4...v3.1.5) (2022-04-30)
+
+
+### Bug Fixes
+
+* **nuxt:** disable ssr ([e38e769](https://github.com/SugarF0x/ci-playground/commit/e38e769b027cc96b827ad26c5a488c1413d0d646))
+
+
+
 ## [3.1.4](https://github.com/SugarF0x/ci-playground/compare/v3.1.3...v3.1.4) (2022-04-30)
 
 
