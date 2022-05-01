@@ -1,3 +1,12 @@
+# [3.2.0](https://github.com/SugarF0x/ci-playground/compare/v3.1.9...v3.2.0) (2022-04-30)
+
+
+### Features
+
+* **zip:** add zip node script ([b4b19f8](https://github.com/SugarF0x/ci-playground/commit/b4b19f8642820ba7b49b9b47b179bcfff4c6f191))
+
+
+
 ## [3.1.9](https://github.com/SugarF0x/ci-playground/compare/v3.1.8...v3.1.9) (2022-04-30)
 
 
