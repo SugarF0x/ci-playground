@@ -1,3 +1,12 @@
+## [3.2.1](https://github.com/SugarF0x/ci-playground/compare/v3.2.0...v3.2.1) (2022-05-01)
+
+
+### Bug Fixes
+
+* **test:** changelog of piss ([e25034e](https://github.com/SugarF0x/ci-playground/commit/e25034e5588481f82dc2a25085abb7f03c0f4677))
+
+
+
 # [3.2.0](https://github.com/SugarF0x/ci-playground/compare/v3.1.9...v3.2.0) (2022-04-30)
 
 
