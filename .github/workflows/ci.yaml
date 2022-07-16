@@ -5,7 +5,9 @@ on:
   push:
     branches:
       - master
-
+    paths-ignore:
+      - 'package.json'
+      - 'CHANGELOG.md'
 
 jobs:
   setup:
@@ -62,9 +64,9 @@ jobs:
 
   release:
     name: "Create release"
-    needs: [ build, setup ]
+    needs: [ build ]
     if: ${{ needs.setup.outputs.skipped == 'false' }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - uses: softprops/action-gh-release@v1
