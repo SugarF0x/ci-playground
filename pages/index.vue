@@ -1,6 +1,7 @@
 <script setup lang="ts">
 console.log('dummy ass shit')
 console.log('dummy ass shit')
+console.log('dummy ass shit')
 </script>
 
 <template>
