@@ -1,3 +1,12 @@
+# [3.3.0](https://github.com/SugarF0x/ci-playground/compare/v3.2.1...v3.3.0) (2022-07-16)
+
+
+### Features
+
+* super important update ([16620a1](https://github.com/SugarF0x/ci-playground/commit/16620a15785c55d935e76392136cf750111d8823))
+
+
+
 ## [3.2.1](https://github.com/SugarF0x/ci-playground/compare/v3.2.0...v3.2.1) (2022-05-01)
 
 
