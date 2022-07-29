@@ -11,8 +11,8 @@ on:
 
 jobs:
   setup:
-    name: "Checkout & generate changelog"
-    runs-on: self-hosted
+    name: Checkout & generate changelog
+    runs-on: ubuntu-latest
 
     outputs:
       clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
@@ -20,7 +20,8 @@ jobs:
       skipped: ${{ steps.changelog.outputs.skipped }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Generate Changelog
         id: changelog
@@ -30,15 +31,16 @@ jobs:
           release-count: 0
 
   build:
-    name: "Build & Generate output"
+    name: Build distributive
     needs: [ setup ]
-    runs-on: self-hosted
+    if: ${{ needs.setup.outputs.skipped == 'false' }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Setup Nodejs and npm
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: 14
           cache: npm
 
       - name: Setup yarn
@@ -47,8 +49,11 @@ jobs:
       - name: Setup Nodejs with yarn caching
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: 14
           cache: yarn
+
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: yarn install
@@ -62,11 +67,18 @@ jobs:
       - name: Zip output
         run: yarn zip
 
+      - name: Cache output.zip
+        id: cache-output
+        uses: actions/checkout@v3
+        with:
+          path: output.zip
+          key: output-${{ needs.setup.outputs.tag }}
+
   release:
-    name: "Create release"
+    name: Create release
     needs: [ setup, build ]
     if: ${{ needs.setup.outputs.skipped == 'false' }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - uses: softprops/action-gh-release@v1
@@ -75,23 +87,3 @@ jobs:
           name: ${{ needs.setup.outputs.tag }}
           body: ${{ needs.setup.outputs.clean_changelog }}
           files: output.zip
-
-#  deploy:
-#    name: "Deploy"
-#    needs: [ zip ]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Stop pm2
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USERNAME }}
-#          password: ${{ secrets.PASSWORD }}
-#          # this script has to be joined with && before push
-#          # I hate windows
-#          script: |
-#            whoami
-#            dir
-#            echo "Piss shit feed"
-
-
