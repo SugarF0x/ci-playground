@@ -1,3 +1,12 @@
+# [3.4.0](https://github.com/SugarF0x/ci-playground/compare/v3.3.5...v3.4.0) (2022-07-29)
+
+
+### Features
+
+* add YC deployment flow ([4e1349f](https://github.com/SugarF0x/ci-playground/commit/4e1349fe7cc9390ee637a7d84fb555be804a1927))
+
+
+
 ## [3.3.5](https://github.com/SugarF0x/ci-playground/compare/v3.3.4...v3.3.5) (2022-07-29)
 
 
