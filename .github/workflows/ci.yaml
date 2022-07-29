@@ -75,14 +75,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: ${{ $DIST_PATH }}
+          path: ${{ env.DIST_PATH }}
           retention-days: 3
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v3
         with:
           name: release
-          path: ${{ $RELEASE_PATH }}
+          path: ${{ env.RELEASE_PATH }}
           retention-days: 3
 
   release:
@@ -102,7 +102,7 @@ jobs:
           tag_name: ${{ needs.setup.outputs.tag }}
           name: ${{ needs.setup.outputs.tag }}
           body: ${{ needs.setup.outputs.clean_changelog }}
-          files: ${{ $RELEASE_PATH }}
+          files: ${{ env.RELEASE_PATH }}
 
   deploy:
     name: Deploy distributive
@@ -123,6 +123,6 @@ jobs:
         env:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_S3_BUCKET: ${{ $S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ env.S3_BUCKET }}
           AWS_REGION: ru-central1
           AWS_S3_ENDPOINT: https://storage.yandexcloud.net
