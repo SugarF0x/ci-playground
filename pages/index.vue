@@ -12,6 +12,9 @@ console.log('dummy ass shit')
     <div class="card">
       <h1>This is a home page</h1>
       <p>and below you will find navigation</p>
+      <div class="new-element">
+        i am a new element that has just been added
+      </div>
       <a href="/page">goto page</a>
     </div>
   </div>
@@ -23,5 +26,12 @@ console.log('dummy ass shit')
   justify-content: center;
   align-content: center;
   background-color: lightgray;
+}
+
+.new-element {
+  background-color: red;
+  color: white;
+  padding: 16px;
+  margin: 8px;
 }
 </style>
