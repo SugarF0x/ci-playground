@@ -1,3 +1,12 @@
+## [3.3.3](https://github.com/SugarF0x/ci-playground/compare/v3.3.2...v3.3.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* move checkup to beginning of the step ([312d1d3](https://github.com/SugarF0x/ci-playground/commit/312d1d3e7af85f7fc4890bf91d2cd7c048ba2ac1))
+
+
+
 ## [3.3.2](https://github.com/SugarF0x/ci-playground/compare/v3.3.1...v3.3.2) (2022-07-29)
 
 
