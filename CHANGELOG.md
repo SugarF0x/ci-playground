@@ -1,3 +1,12 @@
+## [3.3.4](https://github.com/SugarF0x/ci-playground/compare/v3.3.3...v3.3.4) (2022-07-29)
+
+
+### Bug Fixes
+
+* cache instead of checkout ([33e05b2](https://github.com/SugarF0x/ci-playground/commit/33e05b27a5868493167e013defdf6db48a429c48))
+
+
+
 ## [3.3.3](https://github.com/SugarF0x/ci-playground/compare/v3.3.2...v3.3.3) (2022-07-29)
 
 
