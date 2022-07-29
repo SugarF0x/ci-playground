@@ -1,3 +1,12 @@
+## [3.3.5](https://github.com/SugarF0x/ci-playground/compare/v3.3.4...v3.3.5) (2022-07-29)
+
+
+### Bug Fixes
+
+* replace cache with artifacts ([8fd40e3](https://github.com/SugarF0x/ci-playground/commit/8fd40e35c047948308626fd3d88993fb606f110f))
+
+
+
 ## [3.3.4](https://github.com/SugarF0x/ci-playground/compare/v3.3.3...v3.3.4) (2022-07-29)
 
 
