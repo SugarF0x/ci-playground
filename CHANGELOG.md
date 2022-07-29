@@ -1,3 +1,12 @@
+## [3.4.1](https://github.com/SugarF0x/ci-playground/compare/v3.4.0...v3.4.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* extract some secrets to env vars ([ec6856b](https://github.com/SugarF0x/ci-playground/commit/ec6856b8596bdca9da986822a195e73249d29a1b))
+
+
+
 # [3.4.0](https://github.com/SugarF0x/ci-playground/compare/v3.3.5...v3.4.0) (2022-07-29)
 
 
