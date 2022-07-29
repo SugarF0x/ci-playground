@@ -1,3 +1,12 @@
+## [3.3.2](https://github.com/SugarF0x/ci-playground/compare/v3.3.1...v3.3.2) (2022-07-29)
+
+
+### Bug Fixes
+
+* cock ([5241722](https://github.com/SugarF0x/ci-playground/commit/52417229e293eace5c360ae8519e2ba9bc9ffc9e))
+
+
+
 ## [3.3.1](https://github.com/SugarF0x/ci-playground/compare/v3.3.0...v3.3.1) (2022-07-16)
 
 
