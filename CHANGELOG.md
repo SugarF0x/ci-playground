@@ -1,3 +1,13 @@
+## [3.4.2](https://github.com/SugarF0x/ci-playground/compare/v3.4.1...v3.4.2) (2022-07-29)
+
+
+### Bug Fixes
+
+* and another one goes ([e98731c](https://github.com/SugarF0x/ci-playground/commit/e98731cc56f966f53d30e11102ec1931cb1dbabd))
+* misused env variables ([df33d95](https://github.com/SugarF0x/ci-playground/commit/df33d95b662a681674795b6206d2c4ac224a22a6))
+
+
+
 ## [3.4.1](https://github.com/SugarF0x/ci-playground/compare/v3.4.0...v3.4.1) (2022-07-29)
 
 
