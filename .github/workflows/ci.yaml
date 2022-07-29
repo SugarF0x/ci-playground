@@ -67,12 +67,12 @@ jobs:
       - name: Zip output
         run: yarn zip
 
-      - name: Cache output.zip
-        id: cache-output
-        uses: actions/cache@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
+          name: output
           path: output.zip
-          key: output-${{ needs.setup.outputs.tag }}
+          retention-days: 3
 
   release:
     name: Create release
@@ -81,6 +81,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: output
+
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.setup.outputs.tag }}
