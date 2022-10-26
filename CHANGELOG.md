@@ -1,3 +1,12 @@
+## [3.4.3](https://github.com/SugarF0x/ci-playground/compare/v3.4.2...v3.4.3) (2022-10-26)
+
+
+### Bug Fixes
+
+* zip & yarn update ([94bf570](https://github.com/SugarF0x/ci-playground/commit/94bf57084c8bec003be0feb074a64cf4dd37d60f))
+
+
+
 ## [3.4.2](https://github.com/SugarF0x/ci-playground/compare/v3.4.1...v3.4.2) (2022-07-29)
 
 
