@@ -5,6 +5,7 @@ console.log('dummy ass shit')
 console.log('IAMBREAKING')
 console.log('add cock')
 console.log('dummy ass shit')
+console.log('dummy ass shit')
 </script>
 
 <template>

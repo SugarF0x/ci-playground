@@ -44,20 +44,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Nodejs and npm
-        uses: actions/setup-node@v2
+      - name: Set up Node.js & yarn
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-          cache: npm
+          node-version: '16'
+          cache: 'yarn'
 
-      - name: Setup yarn
-        run: npm install -g yarn
-
-      - name: Setup Nodejs with yarn caching
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          cache: yarn
+      - name: Install project dependencies
+        run: yarn --prefer-offline
 
       - name: Install dependencies
         run: yarn install
@@ -68,8 +62,9 @@ jobs:
       - name: Generate
         run: yarn generate
 
-      - name: Zip output
-        run: yarn zip
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r output.zip ${{ env.DIST_PATH }}
 
       - name: Upload deployment artifact
         uses: actions/upload-artifact@v3
