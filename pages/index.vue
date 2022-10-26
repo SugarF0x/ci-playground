@@ -6,6 +6,7 @@ console.log('IAMBREAKING')
 console.log('add cock')
 console.log('dummy ass shit')
 console.log('dummy ass shit')
+console.log('i am with type checks')
 </script>
 
 <template>

@@ -6,11 +6,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "zip": "node ./.github/zip"
+    "test": "yarn test:types && yarn test:vitest",
+    "test:types": "nuxi typecheck",
+    "test:vitest": "vitest --run"
   },
   "devDependencies": {
+    "@nuxt/test-utils-edge": "^3.0.0-rc.13-27778536.1d795f0",
     "nuxt": "3.0.0-rc.1",
     "sass": "^1.50.1",
+    "vitest": "^0.24.3",
     "zip-dir": "^2.0.0"
   }
 }
