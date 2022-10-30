@@ -9,6 +9,7 @@ console.log('dummy ass shit')
 console.log('i am with type checks')
 console.log('cock')
 console.log('add more cock and additional ball')
+console.log('retriger action')
 </script>
 
 <template>
