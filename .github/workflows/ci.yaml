@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - master
+      - release
     paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
+      - package.json
+      - CHANGELOG.md
 
 env:
   S3_BUCKET: ci-playground.sugar-fox.ru
