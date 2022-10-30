@@ -1,3 +1,13 @@
+## [3.4.4](https://github.com/SugarF0x/ci-playground/compare/v3.4.3...v3.4.4) (2022-10-26)
+
+
+### Bug Fixes
+
+* add prepare script ([34eb5db](https://github.com/SugarF0x/ci-playground/commit/34eb5db9f496475ec035a353fd722416823ba5f8))
+* add type cehcks ([3b972a3](https://github.com/SugarF0x/ci-playground/commit/3b972a3a3a0a23e00057419a9e7fe88f3bc7c197))
+
+
+
 ## [3.4.3](https://github.com/SugarF0x/ci-playground/compare/v3.4.2...v3.4.3) (2022-10-26)
 
 
