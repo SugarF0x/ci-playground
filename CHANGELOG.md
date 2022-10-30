@@ -1,3 +1,14 @@
+# [3.5.0](https://github.com/SugarF0x/ci-playground/compare/v3.4.4...v3.5.0) (2022-10-30)
+
+
+### Features
+
+* cock and ball ([8b94d95](https://github.com/SugarF0x/ci-playground/commit/8b94d95a17134edac98e6d4a752f26c753bc4201))
+* retriger ([33f2085](https://github.com/SugarF0x/ci-playground/commit/33f20856201e3830fceca819f165ac765c09f2b0))
+* set release flow to release branch only ([8a06d0e](https://github.com/SugarF0x/ci-playground/commit/8a06d0e4d492183d69b8e46b52bedda8fa789832))
+
+
+
 ## [3.4.4](https://github.com/SugarF0x/ci-playground/compare/v3.4.3...v3.4.4) (2022-10-26)
 
 
